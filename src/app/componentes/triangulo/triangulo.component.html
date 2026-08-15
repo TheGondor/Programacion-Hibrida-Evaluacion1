@@ -1,0 +1,65 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Triángulo</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>
+      El perímetro de un triángulo se calcula sumando la longitud de sus
+      tres lados (perímetro = lado A + lado B + lado C).
+    </p>
+
+    <ion-img src="/assets/triangulo.png" alt="Imagen del triángulo"></ion-img>
+
+    <form #formTriangulo="ngForm" (ngSubmit)="formTriangulo.valid && calcularPerimetro()">
+      <ion-item>
+        <ion-text>Lado A</ion-text>
+        <ion-input
+          type="number"
+          min="0"
+          [(ngModel)]="ladoA"
+          name="ladoA"
+          placeholder="Ingrese el lado A"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-text>Lado B</ion-text>
+        <ion-input
+          type="number"
+          min="0"
+          [(ngModel)]="ladoB"
+          name="ladoB"
+          placeholder="Ingrese el lado B"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-text>Lado C</ion-text>
+        <ion-input
+          type="number"
+          min="0"
+          [(ngModel)]="ladoC"
+          name="ladoC"
+          placeholder="Ingrese el lado C"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        class="ion-margin-top"
+        [disabled]="formTriangulo.invalid"
+      >
+        Calcular perímetro
+      </ion-button>
+    </form>
+
+    <p *ngIf="perimetro !== null" class="resultado">
+      Perímetro: {{ perimetro | number: '1.2-2' }}
+    </p>
+  </ion-card-content>
+</ion-card>

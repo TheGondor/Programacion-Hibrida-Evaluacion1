@@ -1,0 +1,41 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Círculo</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>
+      El perímetro de un círculo se calcula multiplicando el radio por el número π
+      (perímetro = radio × π).
+    </p>
+
+    <ion-img src="/assets/circulo.png" alt="Imagen del círculo"></ion-img>
+
+    <form #formCirculo="ngForm" (ngSubmit)="formCirculo.valid && calcularPerimetro()">
+      <ion-item>
+        <ion-text>Radio</ion-text>
+        <ion-input
+          type="number"
+          min="0"
+          [(ngModel)]="radio"
+          name="radio"
+          placeholder="Ingrese el radio"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        class="ion-margin-top"
+        [disabled]="formCirculo.invalid"
+      >
+        Calcular perímetro
+      </ion-button>
+    </form>
+
+    <p *ngIf="perimetro !== null" class="resultado">
+      Perímetro: {{ perimetro | number: '1.2-2' }}
+    </p>
+  </ion-card-content>
+</ion-card>
