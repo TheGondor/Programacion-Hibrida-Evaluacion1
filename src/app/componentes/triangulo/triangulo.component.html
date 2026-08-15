@@ -11,9 +11,9 @@
 
     <ion-img src="/assets/triangulo.png" alt="Imagen del triángulo"></ion-img>
 
-    <form #formTriangulo="ngForm" (ngSubmit)="formTriangulo.valid && calcularPerimetro()">
+    <form #formTriangulo="ngForm">
+      <ion-text>Lado A</ion-text>
       <ion-item>
-        <ion-text>Lado A</ion-text>
         <ion-input
           type="number"
           min="0"
@@ -24,8 +24,8 @@
         ></ion-input>
       </ion-item>
 
+      <ion-text>Lado B</ion-text>
       <ion-item>
-        <ion-text>Lado B</ion-text>
         <ion-input
           type="number"
           min="0"
@@ -36,8 +36,8 @@
         ></ion-input>
       </ion-item>
 
+      <ion-text>Lado C</ion-text>
       <ion-item>
-        <ion-text>Lado C</ion-text>
         <ion-input
           type="number"
           min="0"
@@ -50,9 +50,10 @@
 
       <ion-button
         expand="block"
-        type="submit"
+        type="button"
         class="ion-margin-top"
         [disabled]="formTriangulo.invalid"
+        (click)="calcularPerimetro()"
       >
         Calcular perímetro
       </ion-button>

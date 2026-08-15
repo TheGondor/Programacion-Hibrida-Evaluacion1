@@ -10,8 +10,8 @@ export class Circulo extends FiguraGeometrica
         this.radio = radio;
     }
 
-    public override calcularPerimetro(): number 
+    public override calcularPerimetro(): number
     {
-        return this.radio * Math.PI;
+        return this.radio * Math.PI * 2;
     }
 }

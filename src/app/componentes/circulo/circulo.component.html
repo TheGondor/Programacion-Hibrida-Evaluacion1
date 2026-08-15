@@ -11,9 +11,9 @@
 
     <ion-img src="/assets/circulo.png" alt="Imagen del círculo"></ion-img>
 
-    <form #formCirculo="ngForm" (ngSubmit)="formCirculo.valid && calcularPerimetro()">
+    <form #formCirculo="ngForm">
+      <ion-text>Radio</ion-text>
       <ion-item>
-        <ion-text>Radio</ion-text>
         <ion-input
           type="number"
           min="0"
@@ -26,9 +26,10 @@
 
       <ion-button
         expand="block"
-        type="submit"
+        type="button"
         class="ion-margin-top"
         [disabled]="formCirculo.invalid"
+        (click)="calcularPerimetro()"
       >
         Calcular perímetro
       </ion-button>
